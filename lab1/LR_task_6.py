@@ -4,15 +4,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
 
-# Зчитуємо дані з файлу та створюємо DataFrame
-data = pd.read_csv('data_metrics.csv')
+# load data from file
+# Розділяємо дані на тренувальний та тестовий набор
+input_file = 'data_multivar_nb.txt'
 
-# Визначаємо змінні X та y для моделі
-# Вибираємо усі змінні, окрім цільової змінної
-X = data.drop('actual_label', axis=1)
-y = data['actual_label']
+data = np.loadtxt(input_file, delimiter=',')
+# print(data)
+X, y = data[:, :-1], data[:, -1]
+print(X)
 
-# Розділяємо дані на тренувальний та тестовий набори
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # Створюємо модель машини опорних векторів
@@ -24,7 +24,5 @@ svm_model.fit(X_train, y_train)
 # Діагностичні метрики класифікації
 y_pred = svm_model.predict(X_test)
 
-# Рахуємо accuracy_score
-accuracy = accuracy_score(y_test, y_pred)
 
 print(classification_report(y_test, y_pred))
