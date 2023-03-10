@@ -11,7 +11,6 @@ input_file = 'data_multivar_nb.txt'
 data = np.loadtxt(input_file, delimiter=',')
 # print(data)
 X, y = data[:, :-1], data[:, -1]
-print(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
