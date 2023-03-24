@@ -84,4 +84,3 @@ f1_values = cross_val_score(classifier,
 print("F1: " + str(round(100 * f1_values.mean(), 2)) + "%")
 print('Predicted class is: ',
       label_encoder[-1].inverse_transform(predicted_class)[0])
-print('------')
