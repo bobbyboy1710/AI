@@ -4,7 +4,7 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 from sklearn import covariance, cluster
-from mplfinance import fetch_yahoo_historical_ochl as quotes_yahoo
+from mplfinance import
 
 
 input_file = 'company_symbol_mapping.json'
